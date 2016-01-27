@@ -1,0 +1,8 @@
+<div xmlns:th="http://www.thymeleaf.org"
+     id="main-content">
+  <table>
+    <tr th:each="u : ${users}">
+      <td th:text="${u.email}" />
+    </tr>
+  </table>
+</div>

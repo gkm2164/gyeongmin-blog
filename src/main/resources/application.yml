@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/Blog?useSSL=false
+    username: gyeongmin
+    password: a4458081
+  jpa:
+    hibernate:
+      naming-strategy: org.hibernate.cfg.EJB3NamingStrategy

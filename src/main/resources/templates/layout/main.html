@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="layout/head">
+
+  </head>
+  <body>
+    <nav th:replace="layout/nav" />
+
+    <header th:replace="${header}" />
+    <hr />
+
+    <div id="main-content" th:replace="${view}">
+      View should be replaced here!
+    </div>
+
+    <hr />
+
+    <div id="footer" th:replace="layout/footer" />
+  </body>
+</html>
