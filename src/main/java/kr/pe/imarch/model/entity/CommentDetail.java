@@ -3,6 +3,7 @@ package kr.pe.imarch.model.entity;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * Created by USER on 2016-01-27.
@@ -10,7 +11,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "CommentDetails")
 @Data
-public class CommentDetail {
+public class CommentDetail implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE, generator = "CommentDetailIDGen")
     @TableGenerator(

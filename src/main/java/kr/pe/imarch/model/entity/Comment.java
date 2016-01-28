@@ -1,9 +1,11 @@
 package kr.pe.imarch.model.entity;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.sql.Timestamp;
 
 /**
@@ -12,7 +14,8 @@ import java.sql.Timestamp;
 @Entity
 @Table(name = "Comments")
 @Data
-public class Comment {
+@EqualsAndHashCode(exclude = { "commentDetail" })
+public class Comment implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE, generator = "CommentIDGen")
     @TableGenerator(

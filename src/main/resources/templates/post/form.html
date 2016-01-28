@@ -1,0 +1,26 @@
+<form xmlns:th="http://www.thymeleaf.org"
+      th:object="${postForm}"
+      th:action="@{/post/{_}(_=${action})}"
+      method="post"
+      action="#">
+
+  <input class="form-control" type="hidden" th:field="*{id}" />
+
+  <div>
+    <label>User: </label>
+    <input class="form-control" type="text" th:field="*{ownerId}" />
+  </div>
+  <div>
+    <label>Category: </label>
+    <input class="form-control" type="text" th:field="*{categoryId}" />
+  </div>
+  <div>
+    <label>Title: </label>
+    <input class="form-control" type="text" th:field="*{title}" />
+  </div>
+  <div>
+    <label>Text: </label>
+    <textarea class="form-control" th:field="*{text}" />
+  </div>
+  <button class="form-control" type="submit">Submit</button>
+</form>

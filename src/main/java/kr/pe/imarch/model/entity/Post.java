@@ -1,9 +1,11 @@
 package kr.pe.imarch.model.entity;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +16,8 @@ import java.util.List;
 @Entity
 @Table(name = "Posts")
 @Data
-public class Post {
+@EqualsAndHashCode(exclude = {"postDetail", "commentList"})
+public class Post implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE, generator = "PostIDGen")
     @TableGenerator(
@@ -47,7 +50,7 @@ public class Post {
     @Type(type = "org.hibernate.type.NumericBooleanType")
     private Boolean deleted;
 
-    @OneToOne(mappedBy = "post")
+    @OneToOne(mappedBy = "post", cascade = CascadeType.REFRESH)
     private PostDetail postDetail;
 
     @OneToMany(mappedBy = "post")

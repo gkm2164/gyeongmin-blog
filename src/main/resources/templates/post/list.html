@@ -1,9 +1,9 @@
 <div xmlns:th="http://www.thymeleaf.org"
     class="container">
-  <table class="table table-bordered">
-    <tr th:each="p : ${posts}">
-      <td th:text="${p.title}" />
-      <td th:text="${p.postDetail.text}" />
-    </tr>
-  </table>
+  <div th:each="p : ${posts}"
+       class="container">
+    <h1 th:text="${p.title}">Title</h1>
+    <p th:text="${p.postDetail.text}">Text</p>
+    <hr />
+  </div>
 </div>

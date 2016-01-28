@@ -2,9 +2,11 @@ package kr.pe.imarch.model.entity;
 
 import kr.pe.imarch.model.entity.user.UserType;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +17,8 @@ import java.util.List;
 @Entity
 @Table(name = "Users")
 @Data
-public class User {
+@EqualsAndHashCode(exclude = {"userDetail", "categoryList", "postList", "commentList"})
+public class User implements Serializable {
     @Id @GeneratedValue(strategy = GenerationType.TABLE, generator = "UserIDGen")
     @TableGenerator(
             name = "UserIDGen", table = "SurrogateKeys",

@@ -1,0 +1,12 @@
+<div class="container"
+     id="main-content"
+     xmlns:th="http://www.thymeleaf.org">
+  <h1 th:text="${post.title}">Title</h1>
+  <p th:text="${post.postDetail.text}">Text</p>
+  <hr />
+  <div th:each="comment : ${post.commentList}">
+    <th:block th:replace="comment/fragment(comment=${comment})" />
+  </div>
+  <h1>New Comment</h1>
+  <div th:replace="comment/new(postId=${post.id})" />
+</div>

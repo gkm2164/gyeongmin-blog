@@ -1,8 +1,10 @@
 package kr.pe.imarch.model.entity;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +14,8 @@ import java.util.List;
 @Entity
 @Table(name = "Categories")
 @Data
-public class Category {
+@EqualsAndHashCode(exclude = {"childList", "postList"})
+public class Category implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE, generator = "CategoryIDGen")
     @TableGenerator(
